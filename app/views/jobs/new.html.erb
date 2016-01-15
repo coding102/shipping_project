@@ -3,7 +3,25 @@
     <h1>Current Job Orders</h1>
 
     <%= form_for :job, url: jobs_path do |f| %>
-
+    <% if @job.errors.any? %>
+        <div id="errors">
+            
+            <h2>
+                <%= pluralize(@job.errors.count, "error") %> prevented this job from saving
+            </h2>
+            
+            <ul>
+                <% @job.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+            
+    
+        </div>
+    <% end %>
+    
+    
+    
         <p>
             <%= f.label :job_name %> <br>
             <%= f.text_field :job_name %>
@@ -16,7 +34,7 @@
 
         <p>
             <%= f.label :containers_needed %> <br>
-            <%= f.number_field :title %>
+            <%= f.number_field :containers_needed %>
         </p> 
     
         <p>
