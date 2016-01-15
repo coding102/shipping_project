@@ -1,0 +1,33 @@
+<h1 class="job_name">
+    <%= @job.job_name %>
+</h1>
+
+
+<p class="date">
+    Submitted <%= time_ago_in_words(@job.created_at) %> Ago
+</p>
+
+
+<p class="cargo">
+    <%= @job.cargo %>
+</p>
+
+
+<p class="containers_needed">
+    <%= @job.containers_needed %>
+</p>
+
+
+<p class="origin">
+    <%= @job.origin %>
+</p>
+
+
+<p class="destination">
+    <%= @job.destination %>
+</p>
+
+
+<p class="cost">
+    <%= @job.cost %>
+</p>
