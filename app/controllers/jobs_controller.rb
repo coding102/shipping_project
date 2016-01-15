@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
     
     def index
+        @jobs = Job.all.order('created_at DESC')
     end
     
         
@@ -17,7 +18,7 @@ class JobsController < ApplicationController
     
     
     def show
-        @job = Job.find(params [:id])
+        @job = Job.find(params[:id])
     end
     
     

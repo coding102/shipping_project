@@ -7,8 +7,50 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+    <div id="sidebar">
+        <ul>
+            <li class="category">Website</li>
+            <li><%= link_to "Open Jobs", root_path %></li>
+            <li>About</li>
+        </ul>
+        
+        <ul class="Social">
+            <li><a href= "https://twitter.com">Twitter</a></li>
+            <li><a href= "https://instagram.com">Instagram</a></li>
+            <li><a href= "https://github.com">Github</a></li>
+            <li><a href= "https://facebook.com.com">Email</a></li>
+        </ul>
+        <p class="sign_in">Admin Login</p>
+    </div>
+        
+        <div id="main_content">
+            
+            <div id="header">
+                
+                <p>All Jobs</p>
+                
+                <div class="buttons">
+                    
+                    <button class="button">
+                        <%= link_to "New Job", new_job_path %>
+                    </button>
+                    
+                    <button class="button">
+                        Log Out
+                    </button>
+                    
+                </div>
+                
+            </div>
+            
+            <%= flash.each do |job_name, cargo, containers_needed, origin, destination, cost| %>
+            <%= content_tag(:div, job_name, class: "alert") %>
+            
+            <% end %>
+            
+            <%= yield %>
+            
+        </div>
 
 </body>
 </html>

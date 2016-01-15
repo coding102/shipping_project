@@ -1,39 +1,43 @@
-<h1>Current Job Orders</h1>
+<div id="job_wrapper">
 
-<%= form_for :job, url: jobs_path do |f| %>
+    <h1>Current Job Orders</h1>
 
-    <p>
-        <%= f.label :job_name %> <br>
-        <%= f.text_field :job_name %>
-    </p>   
+    <%= form_for :job, url: jobs_path do |f| %>
 
-    <p>
-        <%= f.label :cargo %> <br>
-        <%= f.text_field :cargo %>
-    </p>
+        <p>
+            <%= f.label :job_name %> <br>
+            <%= f.text_field :job_name %>
+        </p>   
 
-    <p>
-        <%= f.label :containers_needed %> <br>
-        <%= f.number_field :title %>
-    </p> 
+        <p>
+            <%= f.label :cargo %> <br>
+            <%= f.text_field :cargo %>
+        </p>
+
+        <p>
+            <%= f.label :containers_needed %> <br>
+            <%= f.number_field :title %>
+        </p> 
     
-    <p>
-        <%= f.label :origin %> <br>
-        <%= f.text_field :origin %>
-    </p>
+        <p>
+            <%= f.label :origin %> <br>
+            <%= f.text_field :origin %>
+        </p>
 
-    <p>
-        <%= f.label :destination %> <br>
-        <%= f.text_field :destination %>
-    </p>
+        <p>
+            <%= f.label :destination %> <br>
+            <%= f.text_field :destination %>
+        </p>
 
-    <p>  
-        <%= f.label :cost %> <br>
-        <%= f.text_field :cost %>
-    </p>
+        <p>  
+            <%= f.label :cost %> <br>
+            <%= f.text_field :cost %>
+        </p>
 
-    <p>
-        <%= f.submit%>
-    </p>
+        <p>
+            <%= f.submit%>
+        </p>
 
-<% end %>
+    <% end %>
+    
+</div>
