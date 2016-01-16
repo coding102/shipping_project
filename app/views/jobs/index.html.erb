@@ -1,7 +1,7 @@
 <% @jobs.each do |job| %>
     <div class="job_wrapper">
         <!--  show job name  -->
-        <h2 class="job_name"><%= link_to job.job_name, job %></h2>
+        <h2 class="title"><%= link_to job.job_name, job %></h2>
         <!--  show month, day, year, time of job creation  -->
         <p class="date"><%= job.created_at.strftime("%B, %d, %Y, %I:%M%p") %></p>
     </div>

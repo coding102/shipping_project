@@ -25,6 +25,22 @@ class JobsController < ApplicationController
     end
     
     
+    def edit
+        @job = Job.find(params[:id])
+    end
+    
+    
+    def update
+        @job = Job.find(params[:id])
+        
+        if @job.update(params[:job].permit(:job_name, :cargo, :containers_needed, :origin, :destination, :cost))
+            redirect_to @job
+        else
+            render 'edit'
+        end
+    end
+        
+    
     private
         def job_params
             params.require(:job).permit(:job_name, :cargo, :containers_needed, :origin, :destination, :cost)
