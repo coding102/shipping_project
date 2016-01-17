@@ -1,4 +1,6 @@
 <div class="boat_job clearfix">
+    
+    
     <div class="boat_job_content">
         <p class="boat_job_status">
             <strong>
@@ -15,10 +17,15 @@
         Ago</p>
     </div>
     
-    <p>
-        <%= link_to 'Delete', [boat_job.job, boat_job], 
+    
+    <% if user_signed_in? %>
+        <p>
+            <%= link_to 'Delete', [boat_job.job, boat_job], 
                 method: :delete, 
                 class: 'button', 
                 data: { confirm: 'Have issues been settled?'} %>
-    </p>
+        </p>
+    <% end %>
+    
+    
 </div>

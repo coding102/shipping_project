@@ -20,7 +20,11 @@
             <li><a href= "https://github.com">Github</a></li>
             <li><a href= "https://facebook.com.com">Facebook</a></li>
         </ul>
-        <p class="sign_in">Admin Login</p>
+        
+        <% if !user_signed_in? %>
+            <p class="sign_in">Admin Login</p>
+        <% end %> 
+        
     </div>
         
         <div id="main_content">
@@ -28,6 +32,7 @@
             <div id="header">
                 
                 
+                <!--  nav bar page rules  -->
                 <% if current_page?(root_path) %>
                     <p>All Jobs</p>
                 <% elsif current_page?(about_path) %>
@@ -37,18 +42,19 @@
                 <% end %>
                 
                 
-                
-                <div class="buttons">
+                <% if user_signed_in? %>
+                    <div class="buttons">
                     
-                    <button class="button">
-                        <%= link_to "New Job", new_job_path %>
-                    </button>
+                        <button class="button">
+                            <%= link_to "New Job", new_job_path %>
+                        </button>
                     
-                    <button class="button">
-                        Log Out
-                    </button>
+                        <button class="button">
+                            Log Out
+                        </button>
                     
-                </div>
+                    </div>
+                <% end %>
                 
             </div>
             

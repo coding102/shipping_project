@@ -7,8 +7,12 @@
 
     <p class="date">
         Submitted <%= time_ago_in_words(@job.created_at) %> Ago
-        | <%= link_to 'Edit', edit_job_path(@job) %>
-        | <%= link_to 'Delete', job_path(@job), method: :delete, data: {confirm: 'Are you sure? Deletion cannot be undone!'} %>
+        
+        <% if user_signed_in? %>
+            | <%= link_to 'Edit', edit_job_path(@job) %>
+            | <%= link_to 'Delete', job_path(@job), method: :delete, data: {confirm: 'Are you sure? Deletion cannot be undone!'} %>
+        <% end %>
+    
     </p>
 
 
