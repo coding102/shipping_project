@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     
     root "jobs#index"
     
+    get '/about', to: 'pages#about'
+    
     
     
     

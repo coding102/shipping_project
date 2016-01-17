@@ -11,14 +11,14 @@
         <ul>
             <li class="category">Website</li>
             <li><%= link_to "Open Jobs", root_path %></li>
-            <li>About</li>
+            <li><%= link_to "About", about_path %></li>
         </ul>
         
         <ul class="Social">
             <li><a href= "https://twitter.com">Twitter</a></li>
             <li><a href= "https://instagram.com">Instagram</a></li>
             <li><a href= "https://github.com">Github</a></li>
-            <li><a href= "https://facebook.com.com">Email</a></li>
+            <li><a href= "https://facebook.com.com">Facebook</a></li>
         </ul>
         <p class="sign_in">Admin Login</p>
     </div>
@@ -27,7 +27,16 @@
             
             <div id="header">
                 
-                <p>All Jobs</p>
+                
+                <% if current_page?(root_path) %>
+                    <p>All Jobs</p>
+                <% elsif current_page?(about_path) %>
+                    <p>About</p>
+                <% else %>
+                    <%= link_to "Back to All Jobs", root_path %>
+                <% end %>
+                
+                
                 
                 <div class="buttons">
                     
