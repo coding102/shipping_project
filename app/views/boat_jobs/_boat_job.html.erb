@@ -14,4 +14,11 @@
             <%= time_ago_in_words(boat_job.created_at) %>  
         Ago</p>
     </div>
+    
+    <p>
+        <%= link_to 'Delete', [boat_job.job, boat_job], 
+                method: :delete, 
+                class: 'button', 
+                data: { confirm: 'Have issues been settled?'} %>
+    </p>
 </div>

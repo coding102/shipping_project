@@ -9,4 +9,12 @@ class BoatJobsController < ApplicationController
     end
     
     
+    def destroy
+        @job = Job.find(params[:job_id])
+        @boat_job = @job.boat_jobs.find(params[:id])
+        @boat_job.destroy
+        
+        redirect_to job_path(@job)
+    end
+    
 end
