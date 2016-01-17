@@ -1,5 +1,7 @@
 class Job < ActiveRecord::Base
-    has_many :boat_jobs
+    has_many :boat_jobs, dependent: :destroy
+    has_one :boat, :through => :boat_jobs
+    has_one :user #, :through => :boat_jobs 
     
 #    LOCATIONS = ["NY", "LA", "Paris"]
     
