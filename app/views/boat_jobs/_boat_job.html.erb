@@ -1,0 +1,17 @@
+<div class="boat_job clearfix">
+    <div class="boat_job_content">
+        <p class="boat_job_status">
+            <strong>
+                <%= boat_job.status %>
+            </strong>
+        </p>
+        
+        <p class="boat_job_issues">
+            <%= boat_job.issues %>
+        </p>
+        
+        <p class="boat_job_time">
+            <%= time_ago_in_words(boat_job.created_at) %>  
+        Ago</p>
+    </div>
+</div>

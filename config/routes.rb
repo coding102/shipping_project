@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-    resources :jobs
+    resources :jobs do 
+        resources :boat_jobs
+    end
+    
+    
     root "jobs#index"
     
     

@@ -1,0 +1,18 @@
+<%= form_for([@job, @job.boat_jobs.build]) do |f| %>
+    <p>
+        <%= f.label :status %><br>
+        <%= f.text_area :status%>
+    </p>
+
+    <p>
+        <%= f.label :issues %><br>
+        <%= f.text_area :issues%>
+    </p>
+    <br>
+
+    <p>
+        <%= f.submit %>
+    </p>
+
+
+<% end %>

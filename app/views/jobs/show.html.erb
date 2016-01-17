@@ -36,4 +36,14 @@
         <%= @job.cost %>
     </p>
 
+    <div id="boat_jobs">
+        <h2>
+            <%= @job.boat_jobs.count %> Issues & Status
+            <%= render @job.boat_jobs %>
+            
+            <h3>Add Issue or Status:</h3>
+            <%= render "boat_jobs/form" %>
+        </h2>
+    </div>
+    
 </div>
