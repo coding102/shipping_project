@@ -6,12 +6,12 @@ class JobsController < ApplicationController
     
         
     def new
-        @job = Job.new
+        @job = current_user.jobs.build
     end
     
     
     def create
-        @job = Job.new(job_params)
+        @job = current_user.jobs.build(job_params)
         if @job.save
             redirect_to @job
         else

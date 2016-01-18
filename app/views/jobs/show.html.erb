@@ -8,7 +8,7 @@
     <p class="date">
         Submitted <%= time_ago_in_words(@job.created_at) %> Ago
         
-        <% if user_signed_in? %>
+        <% if @user == @currentuser %>
             | <%= link_to 'Edit', edit_job_path(@job) %>
             | <%= link_to 'Delete', job_path(@job), method: :delete, data: {confirm: 'Are you sure? Deletion cannot be undone!'} %>
         <% end %>
@@ -17,32 +17,34 @@
 
 
     <p class="cargo">
-        <%= @job.cargo %>
+        <br>Cargo<br><br><%= @job.cargo %>
     </p>
 
 
     <p class="containers_needed">
-        <%= @job.containers_needed %>
+        <br>Containers Needed<br><br>&nbsp;&nbsp<%= @job.containers_needed %>
     </p>
 
 
     <p class="origin">
-        <%= @job.origin %>
+        <br>Origin<br><br>&nbsp;&nbsp<%= @job.origin %>
     </p>
 
 
     <p class="destination">
-        <%= @job.destination %>
+        <br>Destination<br><br>&nbsp;&nbsp<%= @job.destination %>
     </p>
 
 
     <p class="cost">
-        <%= @job.cost %>
+        <br>Cost<br><br>&nbsp; $<%= @job.cost %>0
     </p>
 
+    <br><br>
+    
     <div id="boat_jobs">
         <h2>
-            <%= @job.boat_jobs.count %> Issues & Status
+            <%= @job.boat_jobs.count %> <br><br> Issues & Status <br><br>
             <%= render @job.boat_jobs %>
             
             <h3>Add Issue or Status:</h3>

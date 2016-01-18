@@ -9,11 +9,11 @@
         </p>
         
         <p class="boat_job_issues">
-            <%= boat_job.issues %>
+            <%= boat_job.issues %><br>
         </p>
         
         <p class="boat_job_time">
-            <%= time_ago_in_words(boat_job.created_at) %>  
+            <%= time_ago_in_words(boat_job.created_at) %><br> 
         Ago</p>
     </div>
     
@@ -23,7 +23,7 @@
             <%= link_to 'Delete', [boat_job.job, boat_job], 
                 method: :delete, 
                 class: 'button', 
-                data: { confirm: 'Have issues been settled?'} %>
+                data: { confirm: 'Have issues been settled?'} %><br>
         </p>
     <% end %>
     

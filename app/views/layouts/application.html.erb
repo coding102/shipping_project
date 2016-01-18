@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ShippingProject</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title>ShippingProject</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="http://use.edgefonts.net/rancho:n4:all.js"></script>
+    <%= csrf_meta_tags %>
 </head>
 <body>
+    
+    
     <div id="sidebar">
         <ul>
-            <li class="category">Website</li>
-            <li><%= link_to "Open Jobs", root_path %></li>
+            <li><%= link_to "Jobs", root_path %></li>
             <li><%= link_to "About", about_path %></li>
         </ul>
         
@@ -18,54 +20,67 @@
             <li><a href= "https://twitter.com">Twitter</a></li>
             <li><a href= "https://instagram.com">Instagram</a></li>
             <li><a href= "https://github.com">Github</a></li>
-            <li><a href= "https://facebook.com.com">Facebook</a></li>
+            <li><a href= "https://facebook.com">Facebook</a></li>
         </ul>
         
         <% if !user_signed_in? %>
-            <p class="sign_in">Admin Login</p>
+            <p class="sign_in">
+                <a href= "http://localhost:3000/users/sign_in">Admin Login</a> 
+            </p>
         <% end %> 
+        
+     
+        
         
     </div>
         
-        <div id="main_content">
+    <div id="main_content">
             
-            <div id="header">
-                
-                
-                <!--  nav bar page rules  -->
-                <% if current_page?(root_path) %>
-                    <p>All Jobs</p>
-                <% elsif current_page?(about_path) %>
-                    <p>About</p>
-                <% else %>
-                    <%= link_to "Back to All Jobs", root_path %>
-                <% end %>
-                
-                
-                <% if user_signed_in? %>
-                    <div class="buttons">
-                    
-                        <button class="button">
-                            <%= link_to "New Job", new_job_path %>
-                        </button>
-                    
-                        <button class="button">
-                            Log Out
-                        </button>
-                    
-                    </div>
-                <% end %>
-                
-            </div>
             
+        <div id="header">
+                
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= link_to "Register", new_user_registration_path %><br>
+                
+                
+            <!--  nav bar page rules  -->
+            <% if current_page?(root_path) %><br>
+                <p>All Jobs</p>
+            <% elsif current_page?(about_path) %><br>
+                <p>About</p><br>
+            <% else %>
+                <%= link_to "Back to All Jobs", root_path %>
+            <% end %>
+                
+                
+            <% if user_signed_in? %>
+                <div class="buttons">
+                    
+                    <button class="button">
+                        <%= link_to "New Job", new_job_path %>
+                    </button>
+                        
+<!--                <button class="button">-->
+                    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<!--                </button>-->
+                    
+                </div>
+            <% end %>
+                
+        </div>
+        
+        <div id="mainContent">   
             <%= flash.each do |job_name, cargo, containers_needed, origin, destination, cost| %>
             <%= content_tag(:div, job_name, class: "alert") %>
             
             <% end %>
             
             <%= yield %>
-            
         </div>
+    </div>
 
 </body>
 </html>
+
+
